@@ -1,0 +1,66 @@
+﻿@model Do_An_Hao_1.Models.book
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>book</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.decription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.decription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.images)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.images)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.public_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.public_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.category)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_book }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Do_An_Hao_1.Models.book>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Home</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.decription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.images)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.public_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.author)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.decription)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.images)*@
+
+            <img style="align-self:center;" alt="@item.title"
+                 src="~/Content/ImageBooks/@item.images" width="125" height="150" />
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.public_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.category)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_book }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_book }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_book })
+        </td>
+    </tr>
+}
+
+</table>
