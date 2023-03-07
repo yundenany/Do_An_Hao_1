@@ -50,11 +50,23 @@ namespace Do_An_Hao_1.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.users.Add(user);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
+                var dao = new user();
+                if(dao.check_user_name(user.name))
+                {
+                    ModelState.AddModelError("", "User name is created");
+                }    
+                else if(dao.check_user_email(user.email))
+                {
+                    ModelState.AddModelError("", "Email name is created");
+                }
+                else
+                {
+                    db.users.Add(user);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
             return View(user);
         }
 
@@ -82,10 +94,22 @@ namespace Do_An_Hao_1.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(user).State = EntityState.Modified;
-                
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var dao = new user();
+                if (dao.check_user_name(user.name))
+                {
+                    ModelState.AddModelError("", "User name is created");
+                }
+                else if (dao.check_user_email(user.email))
+                {
+                    ModelState.AddModelError("", "Email name is created");
+                }
+                else
+                {
+                    db.Entry(user).State = EntityState.Modified;
+
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
             return View(user);
         }

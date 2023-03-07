@@ -28,21 +28,23 @@ namespace Do_An_Hao_1.Models
         [Key]
         public int id_book { get; set; }
 
-     /*   [StringLength(255)]*/
+        [StringLength(255)]
         public string title { get; set; }
 
-    /*    [StringLength(255)]*/
+        [StringLength(255)]
         public string author { get; set; }
 
-      /*  [StringLength(255)]*/
+        [StringLength(255)]
         public string decription { get; set; }
 
-       /* [StringLength(100)]*/
+        [StringLength(100)]
         public string images { get; set; }
 
         public int? public_date { get; set; }
 
-   /*     [StringLength(255)]*/
+        [StringLength(255)]
         public string category { get; set; }
+
+       
     }
 }
